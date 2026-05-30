@@ -1,62 +1,142 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Limpiador de Vídeos Personal</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        h1 { color: #38bdf8; margin-top: 0; font-size: 28px; }
+        p { color: #94a3b8; }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin: 25px 0;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 14px;
+            border: 2px solid #334155;
+            background: #0f172a;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #38bdf8;
+        }
+        button {
+            background-color: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        button:hover { background-color: #7dd3fc; }
+        #playerContainer {
+            margin-top: 20px;
+            display: none;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            background: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="es"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Mi Limpiador de Vídeos&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; max-width: 500px; width: 100%; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>input { width: 100%; padding: 12px; margin: 15px 0; border: 2px solid #ddd; border-radius: 5px; box-sizing: border-box; font-size: 16px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>button { background: #ff0000; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>button:hover { background: #cc0000; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Limpiador de Enlaces YouTube&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Pega el enlace y se abrirá en una pestaña nueva 100% limpio.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="urlOriginal" placeholder="Pega el enlace de YouTube aquí..."&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="abrirLimpio()"&gt;¡Abrir sin distracciones!&lt;/button&gt;</p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1">function abrirLimpio() {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const url = document.getElementById('urlOriginal').value.trim();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>let videoId = '';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (url.includes('youtu.be/')) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>videoId = url.split('youtu.be/')[1].split(/[?#]/)[0];</p>
-<p class="p1"><span class="Apple-converted-space">    </span>} else if (url.includes('v=')) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>videoId = url.split('v=')[1].split('&amp;')[0];</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (videoId) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Esta dirección abre el vídeo nativo de YouTube ocupando toda la ventana del navegador, sin comentarios ni sugerencias</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const urlLimpia = `https://www.youtube.com/v/${videoId}`;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.open(urlLimpia, '_blank');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>alert('Por favor, introduce un enlace de YouTube válido.');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1">}</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<div class="container">
+    <h1>Limpiador de Vídeos</h1>
+    <p>Introduce el enlace para verlo sin anuncios laterales, sugerencias ni comentarios.</p>
+    
+    <div class="input-group">
+        <input type="text" id="videoUrl" placeholder="Pega aquí el enlace de YouTube o Vimeo...">
+        <button onclick="limpiarVideo()">Ver Vídeo</button>
+    </div>
+
+    <div id="playerContainer">
+        <div class="video-wrapper">
+            <iframe id="videoPlayer" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+function limpiarVideo() {
+    const urlInput = document.getElementById('videoUrl').value.trim();
+    const playerContainer = document.getElementById('playerContainer');
+    const iframe = document.getElementById('videoPlayer');
+    let embedUrl = '';
+
+    if (urlInput.includes('youtube.com') || urlInput.includes('youtu.be')) {
+        let videoId = '';
+        if (urlInput.includes('youtu.be/')) {
+            videoId = urlInput.split('youtu.be/')[1].split(/[?#]/)[0];
+        } else if (urlInput.includes('v=')) {
+            videoId = urlInput.split('v=')[1].split('&')[0];
+        } else if (urlInput.includes('embed/')) {
+            videoId = urlInput.split('embed/')[1].split(/[?#]/)[0];
+        }
+        
+        if (videoId) {
+            embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+        }
+
+    } else if (urlInput.includes('vimeo.com')) {
+        const vimeoId = urlInput.split('vimeo.com/')[1].split(/[?#]/)[0];
+        if (vimeoId) {
+            embedUrl = `https://player.vimeo.com/video/${vimeoId}?title=0&byline=0&portrait=0`;
+        }
+    }
+
+    if (embedUrl) {
+        iframe.src = embedUrl;
+        playerContainer.style.display = 'block'; // <- Corregido aquí
+    } else {
+        alert('Por favor, introduce un enlace válido.');
+        playerContainer.style.display = 'none';
+    }
+}
+</script>
+
 </body>
 </html>
