@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Mi Limpiador de Vídeos&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: sans-serif; background: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.box { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; max-width: 500px; width: 100%; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input { width: 100%; padding: 12px; margin: 15px 0; border: 2px solid #ddd; border-radius: 5px; box-sizing: border-box; font-size: 16px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button { background: #ff0000; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button:hover { background: #cc0000; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Limpiador de Enlaces YouTube&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Pega el enlace y se abrirá en una pestaña nueva 100% limpio.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="urlOriginal" placeholder="Pega el enlace de YouTube aquí..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="abrirLimpio()"&gt;¡Abrir sin distracciones!&lt;/button&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">function abrirLimpio() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const url = document.getElementById('urlOriginal').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let videoId = '';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (url.includes('youtu.be/')) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>videoId = url.split('youtu.be/')[1].split(/[?#]/)[0];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else if (url.includes('v=')) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>videoId = url.split('v=')[1].split('&amp;')[0];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (videoId) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Esta dirección abre el vídeo nativo de YouTube ocupando toda la ventana del navegador, sin comentarios ni sugerencias</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const urlLimpia = `https://www.youtube.com/v/${videoId}`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.open(urlLimpia, '_blank');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>alert('Por favor, introduce un enlace de YouTube válido.');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
